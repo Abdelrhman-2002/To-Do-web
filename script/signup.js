@@ -1,22 +1,3 @@
-// document.getElementById("signupForm").addEventListener("submit", function (event) {
-//     event.preventDefault();
-
-//     // Retrieve signup username and password from the form
-//     var signupUsername = document.getElementById("signupUsername").value;
-//     var signupPassword = document.getElementById("signupPassword").value;
-
-//     // Check if the username is already taken (for demonstration purposes, you can replace this with your logic)
-//     var existingUser = localStorage.getItem(signupUsername);
-//     if (existingUser) {
-//         alert("Username already taken. Please choose another one.");
-//     } else {
-//         // Save signup information to localStorage
-//         localStorage.setItem(signupUsername, signupPassword);
-
-//         // Redirect the user to the login page (replace with your login page URL)
-//         window.location.href = "file:///C:/Users/hussi/OneDrive/Desktop/G88_AMIT/Session14/index.html";
-//     }
-// });
 document.getElementById("signupForm").addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -24,15 +5,22 @@ document.getElementById("signupForm").addEventListener("submit", function (event
     var signupUsername = document.getElementById("signupUsername").value;
     var signupPassword = document.getElementById("signupPassword").value;
 
-    // Check if the username is already taken (for demonstration purposes, you can replace this with your logic)
-    var existingUser = localStorage.getItem(signupUsername);
+    // Retrieve existing users from local storage
+    var existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+    // Check if the username is already taken
+    var existingUser = existingUsers.find(function (user) {
+        return user.username === signupUsername;
+    });
+
     if (existingUser) {
         alert("Username already taken. Please choose another one.");
     } else {
-        // Save signup information to localStorage
-        localStorage.setItem(signupUsername, signupPassword);
+        // Save signup information to local storage
+        existingUsers.push({ username: signupUsername, password: signupPassword });
+        localStorage.setItem("users", JSON.stringify(existingUsers));
 
-        // Redirect the user to the login page (replace with your login page URL)
+        // Redirect the user to the login page
         window.location.href = "file:///C:/Users/hussi/OneDrive/Desktop/G88_AMIT/Session14/index.html";
     }
 });
