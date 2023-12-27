@@ -110,7 +110,7 @@ input{
     border: none;
     padding: 10px;
 }
-#signupButton
+#loginButton
 {
     height: 60px;
     width: 200px;
@@ -124,7 +124,7 @@ input{
     margin-top: 15px;
     transition: 1s;
 }
-#signupButton:hover{
+#loginButton:hover{
     color: #0092ca;
     background-color: white;
     outline: #24527a solid 2px;
