@@ -2,13 +2,18 @@ let username=document.getElementById("loginUserName");
 let password=document.getElementById("loginPassword");
 let log=document.getElementById("loginButton");
 let users=[];
+let userIndex;
 log.addEventListener("click",function(){
   if(username.value!=''&&password.value!=''){
     users=JSON.parse(window.localStorage.getItem("Users"));
     if(checkUserExistence(users)){
+      let user ={ 
+        UserIndex: userIndex,
+        UserName: username.value
+      }
+      window.localStorage.setItem("currentUser", JSON.stringify(user));
       username.value="";
       password.value="";
-      window.localStorage.setItem("currentUser",JSON.stringify(username.value));
       window.location.href = "../html/tasks.html"
     }else{
       password.nextElementSibling.innerHTML = "incorrect username or password";
@@ -30,6 +35,7 @@ log.addEventListener("click",function(){
 function checkUserExistence(users){
     for(let i=0; i<users.length; i++){
       if (users[i].Username==username.value&&users[i].Password==password.value){
+          userIndex = i;
         return true;
       }
     }

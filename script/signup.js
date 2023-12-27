@@ -92,8 +92,8 @@ sign.addEventListener('click',function(){
         //create a new product object
         users.push(user);
         //pushing the new product into the products array
-        addUser();
-        
+        window.localStorage.setItem('Users',JSON.stringify(users));
+        clear();        
     }else{
         coloringBoxes();
         confpassword.nextElementSibling.innerHTML="Please enter all the fields!";
@@ -107,10 +107,6 @@ function coloringBoxes(){
     if (password.value=='')password.style.outline='1px solid red';
     if (confpassword.value=='')confpassword.style.outline='1px solid red';
     if (username.value=='')username.style.outline='1px solid red';
-}
-function addUser(){
-    window.localStorage.setItem('Users',JSON.stringify(users));
-    clear();
 }
 function clear(){
     fname.value='';
