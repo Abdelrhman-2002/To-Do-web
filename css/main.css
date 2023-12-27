@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Sevillana&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Sevillana&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+nav{
+    height: 65px;
+    width: 100%;
+    background-color: gold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(34, 49, 63, 0.7);;
+    position: fixed;
+    font-family: 'Permanent Marker', cursive;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    transform: translateX(30px);
+}
+.logo:hover{
+    cursor: pointer;
+}
+.signUpButton {
+    background-color: white;
+    color: #0092ca;
+    width: 100px;
+    font-size: 20px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background-color 1s;
+    line-height: 35px;
+    font-family: 'Permanent Marker', cursive;
+}
+.signUpButton:hover{
+    color: #e4f1fe;
+    background-color: #24527a;
+}
+.logo p{
+    font-size: 30px;
+    color: white;
+    font-weight: 900;
+}
+nav ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e4f1fe;
+    font-weight: 900;
+    font-size: 25px;
+    font-family: 'Permanent Marker', cursive;
+}
+
+nav img{
+    height: 50px;
+    width: 50px;
+}
+a{
+    text-decoration: none;
+    color: white;
+    transition: 1s;
+}
+a:hover{
+    color: #0092ca;
+    transition: 1s;
+
+}
+nav ul li{
+    margin: 15px;
+    list-style: none;
+}
+section{
+    width: 100%;
+    height: 100vh;
+    background-color: #8dc6ff;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box{
+    text-align: center;
+    height: 400px;
+    width: 600px;
+    color: #24527a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.box h1{
+    font-size: 40px;
+    font-family: 'Permanent Marker', cursive;
+    color: #e4f1fe;
+}
+.box p{
+    font-size: 24px;
+    color: #272343;
+}
+.startButton{
+    background-color: #24527a;
+    color: #e4f1fe;
+    width: 200px;
+    font-size: 25px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background-color 1s;
+    font-family: 'Permanent Marker', cursive;
+    line-height: 60px;
+    transition: 1s;
+    font-weight: bolder;
+}
+.startButton:hover{
+    color: #0092ca;
+    background-color: white;
+    outline: #24527a solid 2px;
+    transition: 1s;
+    transform: scale(1.2);
+}

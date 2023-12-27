@@ -1,75 +1,133 @@
-body {
-    font-family: 'Arial', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Sevillana&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Sevillana&display=swap');
+*{
     margin: 0;
     padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 100vh;
-    background-color: #f4f4f4;
-}
-
-.login-container {
-    display: flex;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
-.form-container {
-    flex: 1;
-    padding: 40px;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
     box-sizing: border-box;
 }
-
-button, .login-button, .google-button, .facebook-button, .apple-button {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: none;
-    cursor: pointer;
+nav{
+    height: 65px;
     width: 100%;
-    max-width: 300px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(34, 49, 63, 0.7);;
+    position: fixed;
+    font-family: 'Permanent Marker', cursive;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    transform: translateX(30px);
+}
+.logo:hover{
+    cursor: pointer;
+}
+.signUpButton {
+    background-color: white;
+    color: #0092ca;
+    width: 100px;
+    font-size: 20px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: background-color 1s;
+    line-height: 35px;
+    font-family: 'Permanent Marker', cursive;
+}
+.signUpButton:hover{
+    color: #e4f1fe;
+    background-color: #24527a;
+}
+.logo p{
+    font-size: 30px;
+    color: white;
+    font-weight: 900;
+}
+nav ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e4f1fe;
+    font-weight: 900;
+    font-size: 25px;
+    font-family: 'Permanent Marker', cursive;
 }
 
-button img {
-    margin-right: 10px;
-    width: 20px; /* Set the width of the logo */
-    height: 20px; /* Set the height of the logo */
+nav img{
+    height: 50px;
+    width: 50px;
+}
+a{
+    text-decoration: none;
+    color: white;
+    transition: 1s;
+}
+a:hover{
+    color: #0092ca;
+    transition: 1s;
+
+}
+nav ul li{
+    margin: 15px;
+    list-style: none;
+}
+section{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #8dc6ff;
+}
+.formContainer{
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+    border-radius: 10px;
+    background-color: rgba(34, 49, 63, 0.3);
+    
 }
 
-.google-button {
-    color: #000000;
+.formContainer h2{
+    font-weight: 900;
+    font-size: 60px;
+    color: #e4f1fe;
+    font-family: 'Sevillana', cursive;
+    margin-bottom: 30px;
 }
-
-.facebook-button {
-    color: #1877f2;
+input{
+    width: 190px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
 }
-
-.apple-button {
-    color: #000000;
-    background-color: #d1d1d1;
+#signupButton
+{
+    height: 60px;
+    width: 200px;
+    font-size: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: #24527a;
+    color: #e4f1fe;
+    font-family: 'Sevillana', cursive;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 1s;
 }
-
-.login-button {
-    background-color: navy;
-    color: #ffffff;
-    width: auto; /* Allow the button to be as wide as its content */
-    border-radius: 5px; /* Add border radius */
-}
-
-button:hover, .login-button:hover, .google-button:hover, .facebook-button:hover, .apple-button:hover {
-    background-color: silver; /* Change the background color on hover */
-    transform: scale(1.05); /* Add a slight scale effect on hover */
+#signupButton:hover{
+    color: #0092ca;
+    background-color: white;
+    outline: #24527a solid 2px;
+    transition: 1s;
+    transform: scale(1.05);
 }

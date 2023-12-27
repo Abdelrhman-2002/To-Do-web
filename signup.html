@@ -4,39 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/signup.css">
-    <title>Signup Form</title>
+    <link rel="icon" href="Logos/icons8-microsoft-to-do-app-48.png">
+    <title>DoIt</title>
 </head>
 <body>
-<div class="social-buttons">
-    <button class="google-button">
-        <img src="search.png" alt="Google Logo">
-        Continue with Google
-    </button>
-    <button class="facebook-button">
-        <img src="facebook.png" alt="Facebook Logo">
-        Continue with Facebook
-    </button>
-    <button class="apple-button">
-        <img src="apple-logo.png" alt="Apple Logo">
-        Continue with Apple
-    </button>
-</div>
 
-<div class="signup-container">
-    <div class="form-container">
-        <h2>Signup</h2>
-        <form id="signupForm">
-            <label for="signupUsername">Username:</label>
-            <input type="text" id="signupUsername" name="signupUsername" required>
+    <header>
+        <nav>
+            <div class="logo" onclick="window.location.href='main.html'">
+                    <img src="Logos/icons8-microsoft-to-do-app-48.png" >
+                    <p>DoIt</p>
+            </div> 
 
-            <label for="signupPassword">Password:</label>
-            <input type="password" id="signupPassword" name="signupPassword" required>
-
-            <button type="submit" class="signup-button">Signup</button>
-        </form>
-    </div>
-</div>
-
+            <ul>
+                <li>
+                    <a href="login.html">LogIn</a>
+                </li>
+                <li>
+                    <button class="signUpButton" onclick="window.location.href='signup.html'"><b>Sign Up</b></button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <div class="formContainer">
+            <h2>Signup</h2>    
+            <input type="text" id="signupFname" placeholder="First Name" required>
+            <input type="text" id="signupLname" placeholder="Last Name" required>
+            <input type="email" id="signupEmail" placeholder="Email" required>
+            <p></p>
+            <input type="text" id="signupUserName" placeholder="Username" required>
+            <p ></p>
+            <input type="password" id="signupPassword" placeholder="Password" required>
+            <p ></p>
+            <input type="password" id="signupConfirmPassword" placeholder="Confirm Password" required>
+            <p ></p>
+            <button id="signupButton">Signup</button>
+        </div>
+    </section>
 <script src="script/signup.js"></script>
 </body>
 </html>
