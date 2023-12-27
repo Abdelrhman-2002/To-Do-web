@@ -80,12 +80,13 @@ nav ul li{
 section{
     width: 100%;
     height: 100vh;
-    background-color: #8dc6ff;
+    background-image: url("../Images/Starry\ Night\ in\ the\ Red\ Valley.jpg") ;
     background-size: cover;
     background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
+    animation: background_animation 30s infinite ;
 }
 .box{
     text-align: center;
@@ -104,7 +105,7 @@ section{
 }
 .box p{
     font-size: 20px;
-    color: #272343;
+    color: #e4f1fe;
     font-family: 'Libre Baskerville', serif;
 }
 .startButton{
@@ -127,4 +128,15 @@ section{
     outline: #24527a solid 2px;
     transition: 1s;
     transform: scale(1.2);
+}
+@keyframes background_animation{
+    30%{
+        background-image: url(../Images/A\ Guard\ at\ Night.jpg);
+    }
+    60%{
+        background-image: url(../Images/reflection.jpg);
+    }
+    90%{
+        background-image: url(../Images/Starry\ Night\ in\ the\ Red\ Valley.jpg);
+    }
 }
