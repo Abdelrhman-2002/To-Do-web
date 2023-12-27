@@ -94,6 +94,7 @@ sign.addEventListener('click',function(){
         //pushing the new product into the products array
         window.localStorage.setItem('Users',JSON.stringify(users));
         clear();        
+        window.location.href="../html/login.html"
     }else{
         coloringBoxes();
         confpassword.nextElementSibling.innerHTML="Please enter all the fields!";
