@@ -90,7 +90,7 @@ section{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
     border-radius: 10px;
     background-color: rgba(34, 49, 63, 0.3);
     
