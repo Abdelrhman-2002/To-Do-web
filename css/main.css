@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Sevillana&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Sevillana&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Permanent+Marker&family=Sevillana&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -89,7 +90,7 @@ section{
 .box{
     text-align: center;
     height: 400px;
-    width: 600px;
+    width: 650px;
     color: #24527a;
     display: flex;
     justify-content: center;
@@ -97,13 +98,14 @@ section{
     flex-direction: column;
 }
 .box h1{
-    font-size: 40px;
+    font-size: 45px;
     font-family: 'Permanent Marker', cursive;
-    color: #e4f1fe;
+    color: #0092ca;
 }
 .box p{
-    font-size: 24px;
+    font-size: 20px;
     color: #272343;
+    font-family: 'Libre Baskerville', serif;
 }
 .startButton{
     background-color: #24527a;
