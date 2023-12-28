@@ -31,7 +31,7 @@
                     <p>Today</p>
                 </div>
             
-                <div class="box">
+                <div class="box" onclick="displayUpcomingTasks()">
                     <img src="../Logos/day-off.png">
                     <p>Upcoming</p>
                 </div>
@@ -51,6 +51,12 @@
 
                         <button type="button" onclick="saveTask()">Save Task</button>
                     </form>
+                </div>
+
+                <!-- Upcoming task form -->
+                <div class="upcoming-task-form" id="upcomingTaskForm">
+                    <h2>Upcoming Tasks</h2>
+                    <ul id="upcomingTaskList"></ul>
                 </div>
             </div>
         </div>

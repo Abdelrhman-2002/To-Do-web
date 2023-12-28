@@ -34,3 +34,34 @@ function saveTask() {
         alert('Please enter both task name and description.');
     }
 }
+//----------------------------------------------------------------------------------------------
+
+let upcomingBox = document.querySelector(".box:nth-child(4)");
+upcomingBox.addEventListener("click", function () {
+    
+    displayUpcomingTasks();
+});
+
+function displayUpcomingTasks() {
+    let upcomingTaskForm = document.getElementById("upcomingTaskForm");
+    let upcomingTaskList = document.getElementById("upcomingTaskList");
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    upcomingTaskList.innerHTML = "";
+    tasks.forEach(task => {
+        let taskItem = document.createElement("li");
+        taskItem.classList.add("upcoming-task-item");
+
+        let taskTitle = document.createElement("h3");
+        taskTitle.textContent = task.name;
+
+        let taskDescription = document.createElement("p");
+        taskDescription.textContent = task.description;
+
+        taskItem.appendChild(taskTitle);
+        taskItem.appendChild(taskDescription);
+
+        upcomingTaskList.appendChild(taskItem);
+    });
+    upcomingTaskForm.style.display = "block";
+}
+
