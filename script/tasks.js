@@ -65,3 +65,24 @@ function displayUpcomingTasks() {
     upcomingTaskForm.style.display = "block";
 }
 
+// el dark mode //
+
+function toggleDarkMode() {
+    let body = document.body;
+    let themeIconImage = document.getElementById('themeIconImage');
+    if (body.classList.contains('dark-mode')) {
+        body.classList.remove('dark-mode');
+        themeIconImage.src = '../Logos/night-mode.png';
+        body.style.backgroundColor = '#fff'; // Light mode background color
+    } else {
+        body.classList.add('dark-mode');
+        themeIconImage.src = '../Logos/light-mode.png';
+        body.style.backgroundColor = '#1a1a1a'; // Dark mode background color
+    }
+}
+let logo = document.getElementById('logo');
+
+if (logo) {
+    logo.addEventListener('click', toggleDarkMode);
+}
+

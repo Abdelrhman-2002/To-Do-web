@@ -94,63 +94,81 @@ section {
 }
 
 /* Add Task Form Styles */
-.add-task-form {
-  background-color: #0077a9; /* Navy or your preferred blue color */
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  display: none; /* Initially hide the form */
-  margin: 10% auto; /* Center the form */
-  max-width: 400px;
-  color: #fff; /* White text color */
-}
-
-#taskForm {
-  max-width: 100%; /* Adjusted to make sure the form is responsive */
-}
-
-label {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-input,
-textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-
-button {
-  background-color: #fff; /* White background color */
-  color: #0077a9; /* Navy text color */
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  transition: background-color 0.3s; /* Smooth transition on hover */
-}
-
-button:hover {
-  background-color: #ddd; /* Light gray on hover */
-}
-
+.add-task-form,
 .upcoming-task-form {
-    background-color: #0077a9;
-    padding: 20px;
+    background-color: #3498db;
+    padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     display: none;
     margin: 10% auto;
     max-width: 400px;
     color: #fff;
+}
+
+.add-task-form h2,
+.upcoming-task-form h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ecf0f1;
+}
+
+#taskForm {
+    max-width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #ecf0f1;
+    font-family: 'Open Sans', sans-serif; 
+}
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ecf0f1;
+    color: #333;
+    font-family: 'Open Sans', sans-serif;
+}
+button {
+    background-color: #6304d0;
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    background-color: #042032;
+}
+body.dark-mode .add-task-form,
+body.dark-mode .upcoming-task-form {
+    background-color: #193e64; /* Darker background color for dark mode */
+    color: #ecf0f1; /* Light text color for dark mode */
+}
+
+body.dark-mode .add-task-form label,
+body.dark-mode .add-task-form input,
+body.dark-mode .add-task-form textarea,
+body.dark-mode .upcoming-task-form label,
+body.dark-mode .upcoming-task-form input,
+body.dark-mode .upcoming-task-form textarea {
+    background-color: #193e64; /* Darker background color for dark mode inputs */
+    color: #ecf0f1; /* Light text color for dark mode inputs */
+}
+body.dark-mode .add-task-form input,
+body.dark-mode .add-task-form textarea{
+    border: 2px solid gray;
 }
 
 #upcomingTaskList {
@@ -170,3 +188,12 @@ button:hover {
     margin: 0;
     font-size: 14px;
 }
+
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+body.dark-mode .container {
+    background-color:#1c2935;
+}
+
