@@ -4,26 +4,39 @@ let taskNameInput = document.getElementById("taskName");
 let taskDescriptionInput = document.getElementById("taskDescription");
 let saveTaskButton = document.getElementById("saveTaskButton");
 let addTaskBox = document.querySelector(".box");
+let currentUser=JSON.parse(window.localStorage.getItem("currentUser"));
+let Users=JSON.parse(window.localStorage.getItem("Users"));
+let profileImage = document.getElementById("profileImage");
+
+
+//show current user profile image and username
+function profile(){
+    profileImage.src=Users[currentUser.UserIndex].Image;
+    profileImage.nextElementSibling.innerHTML=currentUser.UserName;
+}
+profile();
+
 addTaskBox.addEventListener("click", function () {
 
     addTaskForm.style.display = "block";
 });
-
-saveTaskButton.addEventListener("click", function () {
-    
-    saveTask();
-});
+//feha error
+// saveTaskButton.addEventListener("click", function () {
+//     saveTask();
+// });
 
 function saveTask() {
+    let taskDate=document.getElementById("taskDate");
     let taskName = taskNameInput.value;
     let taskDescription = taskDescriptionInput.value;
     if (taskName !== '' && taskDescription !== '') {
         let existingTasks = JSON.parse(localStorage.getItem('tasks')) || [];
         let taskId = new Date().getTime().toString();
         let task = {
-            id: taskId,
-            name: taskName,
+            userName: currentUser.UserName,
+            taskName: taskName,
             description: taskDescription,
+            date:taskDate.value
         };
         existingTasks.push(task);
         localStorage.setItem('tasks', JSON.stringify(existingTasks));
@@ -67,6 +80,27 @@ function displayUpcomingTasks() {
 
 // el dark mode
 
+
+
+//get the theme that is saved in the memory
+if (localStorage.getItem("theme")){
+    let theme = JSON.parse(window.localStorage.getItem("theme"));
+    let body = document.body;
+    let themeIconImage = document.getElementById('themeIconImage');
+    if (theme=="light-mode") {
+        body.classList.remove('dark-mode');
+        themeIconImage.src = '../Logos/night-mode.png';
+        body.style.backgroundColor = '#fff'; // Light mode background color
+        window.localStorage.setItem("theme",JSON.stringify("light-mode"));//save the theme as light mode in the browser
+    } else {
+        body.classList.add('dark-mode');
+        themeIconImage.src = '../Logos/brightness.png';
+        body.style.backgroundColor = '#1a1a1a'; // Dark mode background color
+        window.localStorage.setItem("theme",JSON.stringify("dark-mode"));//save the theme as night mode in the browser
+    }
+}
+
+
 function toggleDarkMode() {
     let body = document.body;
     let themeIconImage = document.getElementById('themeIconImage');
@@ -74,10 +108,12 @@ function toggleDarkMode() {
         body.classList.remove('dark-mode');
         themeIconImage.src = '../Logos/night-mode.png';
         body.style.backgroundColor = '#fff'; // Light mode background color
+        window.localStorage.setItem("theme",JSON.stringify("light-mode"));//save the theme as light mode in the browser
     } else {
         body.classList.add('dark-mode');
-        themeIconImage.src = '../Logos/light-mode.png';
+        themeIconImage.src = '../Logos/brightness.png';
         body.style.backgroundColor = '#1a1a1a'; // Dark mode background color
+        window.localStorage.setItem("theme",JSON.stringify("dark-mode"));//save the theme as night mode in the browser
     }
 }
 let logo = document.getElementById('logo');

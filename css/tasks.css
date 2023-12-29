@@ -84,13 +84,15 @@ section {
 }
 
 #profileImage {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
 }
 
-.themeIcon img {
+#themeIconImage {
     cursor: pointer;
+    width: 60px;
+    height: 60px;
 }
 
 /* Add Task Form Styles */
@@ -151,8 +153,7 @@ button {
 button:hover {
     background-color: #042032;
 }
-body.dark-mode .add-task-form,
-body.dark-mode .upcoming-task-form {
+body.dark-mode .add-task-form,body.dark-mode .upcoming-task-form {
     background-color: #193e64; /* Darker background color for dark mode */
     color: #ecf0f1; /* Light text color for dark mode */
 }

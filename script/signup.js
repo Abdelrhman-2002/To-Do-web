@@ -86,7 +86,7 @@ sign.addEventListener('click',function(){
             Last:lname.value,
             Username:username.value,
             Email:email.value,
-            Image:"",
+            Image:"../Logos/user.png",
             Password:signupPassword.value
         };
         //create a new product object
