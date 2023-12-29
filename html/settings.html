@@ -9,52 +9,25 @@
 </head>
 <body>
     <section>
-        <div class="main">
-            <div class="board">
-                <div class="profile">
-                    <img id="profileImage" src="../Images/lol.jpeg">
-                    <p>Abddelrhman</p>
-                </div>
-                <div class="box">
-                    <img src="../Logos/plus.png">
-                    <p>AddTask</p>
-                </div>  
-                <div class="box">
-                    <img src="../Logos/inbox.png">
-                    <p>Inbox</p>
-                </div>
-                <div class="box">
-                    <img src="../Logos/date.png">
-                    <p>Today</p>
-                </div>
-            
-                <div class="box">
-                    <img src="../Logos/day-off.png">
-                    <p>Upcoming</p>
-                </div>
-                <div class="themeIcon">
-                    <img src="../Logos/night-mode.png">
-                </div>
-            </div>
-            <div class="container">
+        <div class="container">
                <div class="editProfile">
                     <div class="top">
-                        <h1>edit Profile</h1>
-                        <div class="image">
-                            <img src="../Images/Starry Night in the Red Valley.jpg" >
-                            <input type="file" id="fileInput" accept=".jpg" onchange="handleFileInput()">
+                        <h1>Edit Profile</h1>
+                        <div class="image" >
+                            <img src="" id="image">
                         </div>
                     </div>
                     <div class="data">
-                        <input type="text" id="fname" placeholder="First Name">
-                        <input type="text" id="lname" placeholder="Last Name">
-                        <input type="text" id="email" placeholder="Email">
-                        <input type="text" id="password" placeholder="Current Password">
-                        <input type="text" id="newPassword" placeholder="New Password">
-                        <button id="save">Save</button>
+                        <input type="text" id="fname" placeholder="First Name" readonly >
+                        <input type="text" id="lname" placeholder="Last Name" readonly >
+                        <input type="text" id="email" placeholder="Email" readonly>
+                        <input type="password" id="password" placeholder="Current Password">
+                        <input type="password" id="newPassword" placeholder="New Password">
+                        <p></p>
+                        <button id="save" onclick="save()">Save</button>
                     </div>
                </div>
-            </div>
+               <button id="btn" onclick="window.location.href='../html/tasks.html'"></button>
         </div>
     </section>
     <script src="../script/settings.js"></script>
