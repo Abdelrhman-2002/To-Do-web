@@ -168,7 +168,7 @@ body.dark-mode .upcoming-task-form textarea {
 }
 body.dark-mode .add-task-form input,
 body.dark-mode .add-task-form textarea{
-    border: 2px solid gray;
+    border: 2px solid rgb(5, 125, 224);
 }
 
 #upcomingTaskList {
@@ -196,4 +196,3 @@ body.dark-mode {
 body.dark-mode .container {
     background-color:#1c2935;
 }
-

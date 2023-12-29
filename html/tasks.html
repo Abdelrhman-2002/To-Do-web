@@ -26,7 +26,7 @@
                     <img src="../Logos/inbox.png">
                     <p>Inbox</p>
                 </div>
-                <div class="box">
+                <div class="box" onclick="displayTodayTasks()">
                     <img src="../Logos/date.png">
                     <p>Today</p>
                 </div>
@@ -48,6 +48,9 @@
 
                         <label for="taskDescription">Task Description:</label>
                         <textarea id="taskDescription" name="taskDescription" required></textarea>
+
+                        <label for="taskDate">Task Date:</label>
+                        <input type="date" id="taskDate" name="taskDate" required>
 
                         <button type="button" onclick="saveTask()">Save Task</button>
                     </form>

@@ -65,7 +65,7 @@ function displayUpcomingTasks() {
     upcomingTaskForm.style.display = "block";
 }
 
-// el dark mode //
+// el dark mode
 
 function toggleDarkMode() {
     let body = document.body;
