@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/setting.css">
+    <link rel="icon" href="../Logos/icons8-microsoft-to-do-app-48.png">
+    <title>DoIt</title>
+</head>
+<body>
+    <section>
+        <div class="main">
+            <div class="board">
+                <div class="profile">
+                    <img id="profileImage" src="../Images/lol.jpeg">
+                    <p>Abddelrhman</p>
+                </div>
+                <div class="box">
+                    <img src="../Logos/plus.png">
+                    <p>AddTask</p>
+                </div>  
+                <div class="box">
+                    <img src="../Logos/inbox.png">
+                    <p>Inbox</p>
+                </div>
+                <div class="box">
+                    <img src="../Logos/date.png">
+                    <p>Today</p>
+                </div>
+            
+                <div class="box">
+                    <img src="../Logos/day-off.png">
+                    <p>Upcoming</p>
+                </div>
+                <div class="themeIcon">
+                    <img src="../Logos/night-mode.png">
+                </div>
+            </div>
+            <div class="container">
+               <div class="editProfile">
+                    <div class="top">
+                        <h1>edit Profile</h1>
+                        <div class="image">
+                            <img src="../Images/Starry Night in the Red Valley.jpg" >
+                            <input type="file" id="fileInput" accept=".jpg" onchange="handleFileInput()">
+                        </div>
+                    </div>
+                    <div class="data">
+                        <input type="text" id="fname" placeholder="First Name">
+                        <input type="text" id="lname" placeholder="Last Name">
+                        <input type="text" id="email" placeholder="Email">
+                        <input type="text" id="password" placeholder="Current Password">
+                        <input type="text" id="newPassword" placeholder="New Password">
+                        <button id="save">Save</button>
+                    </div>
+               </div>
+            </div>
+        </div>
+    </section>
+    <script src="../script/settings.js"></script>
+</body>
+</html>
