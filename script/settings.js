@@ -1,7 +1,6 @@
 let image=document.getElementById("image");
 let Users=JSON.parse(window.localStorage.getItem("Users"));
 let currentUser=JSON.parse(window.localStorage.getItem("currentUser"));
-let inputs=document.getElementsByTagName("input");
 let passwordREGEX=/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 let first=document.getElementById("fname");
 let last=document.getElementById("lname");
@@ -16,7 +15,7 @@ function setTheData(){
 }
 setTheData();
 function save(){
-    if(Users[currentUser.UserIndex].Password==inputs[3].value){
+    if(Users[currentUser.UserIndex].Password==currentPassword.value){
         if (passwordREGEX.test(password.value)&&password.value!=Users[currentUser.UserIndex].Password){
             Users[currentUser.UserIndex].Password=password.value;
             window.localStorage.setItem("Users",JSON.stringify(Users));

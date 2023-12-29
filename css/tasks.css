@@ -175,11 +175,7 @@ textarea {
 button:hover{
     cursor: pointer;
 }
-body.dark-mode .add-task-form,body.dark-mode .upcoming-task-form {
-    background-color: #193e64; /* Darker background color for dark mode */
-    color: #ecf0f1; /* Light text color for dark mode */
-}
-
+body.dark-mode .add-task-form,body.dark-mode .upcoming-task-form,
 body.dark-mode .add-task-form label,
 body.dark-mode .add-task-form input,
 body.dark-mode .add-task-form textarea,

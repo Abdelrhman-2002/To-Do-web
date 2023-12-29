@@ -6,13 +6,13 @@ let username=document.getElementById('signupUserName');
 let password=document.getElementById('signupPassword');
 let confpassword=document.getElementById('signupConfirmPassword');
 let usernameValidation=document.getElementById('UsernameValidation');
-usernameREGEX=/(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/;
+let usernameREGEX=/(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$/;
 //username is 8-20 characters long&&no _ or . at the beginning&&no __ or _. or ._ or .. inside&&allowed characters&&no _ or . at the end
 let emailREGEX=/^([a-z]|[A-Z]|[0-9]){8,20}@(gmail|yahoo|icloud|hotmail)\.com$/;
 let passwordREGEX=/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 let users=[];
 if (window.localStorage.getItem("Users")){
-    users=JSON.parse(window.localStorage.getItem("Users"));
+    users=JSON.parse(window.localStorage.getItem("Users"));//get the users data from the local storage
 }
 username.addEventListener('change', function () {
     if (!usernameREGEX.test(username.value)){
@@ -63,7 +63,7 @@ password.addEventListener('change', function () {
         password.nextElementSibling.style.fontSize = '12px';
         password.style.outline = '1px solid red';
     }
-    if (passwordREGEX.test(password.value)){
+    if (passwordREGEX.test(password.value)||password.value==''){
         password.nextElementSibling.innerHTML="";
         password.style.outline = 'none';
     }

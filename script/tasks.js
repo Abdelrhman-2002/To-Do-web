@@ -11,8 +11,6 @@ function profile(){
 }
 profile();
 
-
-
 function displayAddTaskForm(){
     let addTask=`
     <div class="add-task-form">
@@ -38,7 +36,6 @@ function saveTask() {
     let taskDate=document.getElementById("taskDate").value;
     let taskName = document.getElementById("taskName").value;
     let taskDescription = document.getElementById("taskDescription").value;
-    console.log(taskDate,taskName,taskDescription)
     if (taskName !== '' && taskDescription !== ''&& taskDate!==null) {
         let existingTasks = JSON.parse(localStorage.getItem('tasks')) || [];
         let task = {
@@ -133,23 +130,7 @@ function displayTodayTasks() {
 
 
 
-//get the theme that is saved in the memory
-if (localStorage.getItem("theme")){
-    let theme = JSON.parse(window.localStorage.getItem("theme"));
-    let body = document.body;
-    let themeIconImage = document.getElementById('themeIconImage');
-    if (theme=="light-mode") {
-        body.classList.remove('dark-mode');
-        themeIconImage.src = '../Logos/night-mode.png';
-        body.style.backgroundColor = '#fff'; // Light mode background color
-        window.localStorage.setItem("theme",JSON.stringify("light-mode"));//save the theme as light mode in the browser
-    } else {
-        body.classList.add('dark-mode');
-        themeIconImage.src = '../Logos/brightness.png';
-        body.style.backgroundColor = '#1a1a1a'; // Dark mode background color
-        window.localStorage.setItem("theme",JSON.stringify("dark-mode"));//save the theme as night mode in the browser
-    }
-}
+
 function displayInbox() {
     let tasks = JSON.parse(window.localStorage.getItem("tasks"));
     let inboxTasks = '';
@@ -196,6 +177,24 @@ function markTaskAsDone(taskIndex) {
 }
 
 
+
+//get the theme that is saved in the memory
+if (localStorage.getItem("theme")){
+    let theme = JSON.parse(window.localStorage.getItem("theme"));
+    let body = document.body;
+    let themeIconImage = document.getElementById('themeIconImage');
+    if (theme=="light-mode") {
+        body.classList.remove('dark-mode');
+        themeIconImage.src = '../Logos/night-mode.png';
+        body.style.backgroundColor = '#fff'; // Light mode background color
+        window.localStorage.setItem("theme",JSON.stringify("light-mode"));//save the theme as light mode in the browser
+    } else {
+        body.classList.add('dark-mode');
+        themeIconImage.src = '../Logos/brightness.png';
+        body.style.backgroundColor = '#1a1a1a'; // Dark mode background color
+        window.localStorage.setItem("theme",JSON.stringify("dark-mode"));//save the theme as night mode in the browser
+    }
+}
 
 
 function toggleDarkMode() {
