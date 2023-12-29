@@ -72,7 +72,7 @@ function displayUpcomingTasks() {
                     <div class="task" data-task-index="${i}">
                         <div class="taskHeader">
                             <p>${tasks[i].taskName}</p>
-                            <button onclick="markTaskAsDone(${i})">Done</button>
+                            <button onclick="markTaskAsDone(${i})"></button>
                         </div>
                         <div class="taskBody">
                             <p>${tasks[i].description}</p>
@@ -113,7 +113,7 @@ function displayTodayTasks() {
                     <div class="task" data-task-index="${i}">
                         <div class="taskHeader">
                             <p>${tasks[i].taskName}</p>
-                            <button onclick="markTaskAsDone(${i})">Done</button>
+                            <button onclick="markTaskAsDone(${i})"></button>
                         </div>
                         <div class="taskBody">
                             <p>${tasks[i].description}</p>
@@ -160,7 +160,7 @@ function displayInbox() {
                 <div class="task" data-task-index="${i}">
                     <div class="taskHeader">
                         <p>${tasks[i].taskName}</p>
-                        <button onclick="markTaskAsDone(${i})">Done</button>
+                        <button onclick="markTaskAsDone(${i})"></button>
                     </div>
                     <div class="taskBody">
                         <p>${tasks[i].description}</p>

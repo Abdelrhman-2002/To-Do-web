@@ -145,6 +145,7 @@ section{
 #btn{
   background-image: url(../Logos/undo.png);
   background-repeat: no-repeat;
+  background-size: cover;
   width: 60px;
   height: 60px;
   border: none;
