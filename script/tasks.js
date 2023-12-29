@@ -59,21 +59,20 @@ function saveTask() {
 
 function displayUpcomingTasks() {
     let tasks = JSON.parse(window.localStorage.getItem("tasks"));
-    let upcomingTasks = ``;
+    let upcomingTasks = '';
 
-    let currentDate = new Date(); // Get the current date
+    let currentDate = new Date();
 
     for (let i = 0; i < tasks.length; i++) {
         if (tasks[i].userName === currentUser.UserName) {
-            let taskDate = new Date(tasks[i].date); // Convert task date to a Date object
+            let taskDate = new Date(tasks[i].date);
 
-            // Check if the task's date is after today
             if (taskDate > currentDate) {
                 upcomingTasks += `
-                    <div class="task">
+                    <div class="task" data-task-index="${i}">
                         <div class="taskHeader">
                             <p>${tasks[i].taskName}</p>
-                            <input type="radio" onclick="deleteTask()">
+                            <button onclick="markTaskAsDone(${i})">Done</button>
                         </div>
                         <div class="taskBody">
                             <p>${tasks[i].description}</p>
@@ -86,19 +85,23 @@ function displayUpcomingTasks() {
     }
 
     container.innerHTML = upcomingTasks;
+    
 }
+
+// Similar changes in displayTodayTasks and displayInbox functions
+
 
 
 
 function displayTodayTasks() {
     let tasks = JSON.parse(window.localStorage.getItem("tasks"));
-    let upcomingTasks = ``;
+    let todayTasks = '';
 
-    let currentDate = new Date(); // Get the current date
+    let currentDate = new Date();
 
     for (let i = 0; i < tasks.length; i++) {
         if (tasks[i].userName === currentUser.UserName) {
-            let taskDate = new Date(tasks[i].date); // Convert task date to a Date object
+            let taskDate = new Date(tasks[i].date);
 
             // Check if the task's date is equal to today's date
             if (
@@ -106,11 +109,11 @@ function displayTodayTasks() {
                 taskDate.getMonth() === currentDate.getMonth() &&
                 taskDate.getFullYear() === currentDate.getFullYear()
             ) {
-                upcomingTasks += `
-                    <div class="task">
+                todayTasks += `
+                    <div class="task" data-task-index="${i}">
                         <div class="taskHeader">
                             <p>${tasks[i].taskName}</p>
-                            <input type="radio" onclick="deleteTask()">
+                            <button onclick="markTaskAsDone(${i})">Done</button>
                         </div>
                         <div class="taskBody">
                             <p>${tasks[i].description}</p>
@@ -122,9 +125,8 @@ function displayTodayTasks() {
         }
     }
 
-    container.innerHTML = upcomingTasks;
+    container.innerHTML = todayTasks;
 }
-
 
 
 // el dark mode
@@ -148,32 +150,51 @@ if (localStorage.getItem("theme")){
         window.localStorage.setItem("theme",JSON.stringify("dark-mode"));//save the theme as night mode in the browser
     }
 }
+function displayInbox() {
+    let tasks = JSON.parse(window.localStorage.getItem("tasks"));
+    let inboxTasks = '';
 
-function displayInbox(){
-    let tasks =JSON.parse(window.localStorage.getItem("tasks"));
-    let inboxTasks=``;
     for (let i = 0; i < tasks.length; i++) {
-        if(tasks[i].userName ===currentUser.UserName){
-        inboxTasks+=`
-            <div class="task">
+        if (tasks[i].userName === currentUser.UserName) {
+            inboxTasks += `
+                <div class="task" data-task-index="${i}">
                     <div class="taskHeader">
                         <p>${tasks[i].taskName}</p>
-                        <input type="radio" onclick="deleteTask()">
+                        <button onclick="markTaskAsDone(${i})">Done</button>
                     </div>
                     <div class="taskBody">
                         <p>${tasks[i].description}</p>
                         <p id="date">${tasks[i].date}</p>
                     </div>
-            </div>
-        `
+                </div>
+            `;
         }
     }
-    container.innerHTML=inboxTasks;
-}
-function deleteTask() {
 
-
+    container.innerHTML = inboxTasks;
+    
 }
+
+// Add this function to your JavaScript
+function markTaskAsDone(taskIndex) {
+    let tasks = JSON.parse(window.localStorage.getItem("tasks"));
+
+    // Assuming you have a class "task" for both upcoming and inbox tasks
+    let taskElement = document.querySelector(`.task[data-task-index="${taskIndex}"]`);
+
+    if (taskElement) {
+        // Remove the task from the UI
+        taskElement.remove();
+
+        // Remove the task from the tasks array
+        tasks.splice(taskIndex, 1);
+
+        // Update the tasks in local storage
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+        alert('Task marked as done!');
+    }
+}
+
 
 
 
