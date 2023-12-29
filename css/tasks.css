@@ -11,7 +11,6 @@ section {
     display: flex;
     width: 100%;
 }
-
 .board {
     width: 20%;
     position: fixed;
@@ -23,14 +22,20 @@ section {
     justify-content: space-between;
 }
 
-.container {
+#container {
     width: 80%;
     color: #fff;
     background-color: #8dc6ff;
-    height: 1000vh;
+    min-height: 100vh;
     position: absolute;
     margin-left: 20%;
     overflow: scroll;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 50px;
+    padding-top: 50px;
 }
 
 .box {
@@ -99,10 +104,11 @@ section {
 .add-task-form,
 .upcoming-task-form {
     background-color: #3498db;
+    width: 400px;
+    height: 400px;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    display: none;
     margin: 10% auto;
     max-width: 400px;
     color: #fff;
@@ -194,6 +200,44 @@ body.dark-mode {
     background-color: #1a1a1a;
     color: #fff;
 }
-body.dark-mode .container {
+body.dark-mode #container {
     background-color:#1c2935;
+}
+.task{
+    background-color: #0092ca;
+    width: 800px;
+    height: 200px;
+    border-radius: 20px;
+}
+.taskHeader{
+    display: flex;
+    width: 800px;
+    height: 50px;
+    /* background-color: black; */
+    border-radius: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    gap: 30px;
+    font-size: 40px;
+}
+.taskHeader input{
+    width: 40px;
+    height: 40px;
+    transform: translateY(10px);
+}
+.taskBody{
+    width: 800px;
+    height: 150px;
+    border-radius: 20px;
+    /* background-color: black; */
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+}
+.taskBody #date{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
 }

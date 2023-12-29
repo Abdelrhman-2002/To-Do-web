@@ -1,13 +1,8 @@
-
-let addTaskForm = document.getElementById("addTaskForm");
-let taskNameInput = document.getElementById("taskName");
-let taskDescriptionInput = document.getElementById("taskDescription");
-let saveTaskButton = document.getElementById("saveTaskButton");
 let addTaskBox = document.querySelector(".box");
 let currentUser=JSON.parse(window.localStorage.getItem("currentUser"));
 let Users=JSON.parse(window.localStorage.getItem("Users"));
 let profileImage = document.getElementById("profileImage");
-
+let container=document.getElementById("container");
 
 //show current user profile image and username
 function profile(){
@@ -16,31 +11,44 @@ function profile(){
 }
 profile();
 
-addTaskBox.addEventListener("click", function () {
 
-    addTaskForm.style.display = "block";
-});
-//feha error
-// saveTaskButton.addEventListener("click", function () {
-//     saveTask();
-// });
+
+function displayAddTaskForm(){
+    let addTask=`
+    <div class="add-task-form">
+        <form id="taskForm">
+            <label for="taskName">Task Name:</label>
+            <input type="text" id="taskName" name="taskName" required>
+
+            <label for="taskDescription">Task Description:</label>
+            <textarea id="taskDescription" name="taskDescription" required></textarea>
+
+            <label for="taskDate">Task Date:</label>
+            <input type="date" id="taskDate" name="taskDate" required>
+
+            <button onclick="saveTask()">Save Task</button>
+        </form>
+    </div>
+    `
+    container.innerHTML=addTask;
+}
+
 
 function saveTask() {
-    let taskDate=document.getElementById("taskDate");
-    let taskName = taskNameInput.value;
-    let taskDescription = taskDescriptionInput.value;
-    if (taskName !== '' && taskDescription !== '') {
+    let taskDate=document.getElementById("taskDate").value;
+    let taskName = document.getElementById("taskName").value;
+    let taskDescription = document.getElementById("taskDescription").value;
+    console.log(taskDate,taskName,taskDescription)
+    if (taskName !== '' && taskDescription !== ''&& taskDate!==null) {
         let existingTasks = JSON.parse(localStorage.getItem('tasks')) || [];
-        let taskId = new Date().getTime().toString();
         let task = {
             userName: currentUser.UserName,
             taskName: taskName,
             description: taskDescription,
-            date:taskDate.value
+            date:taskDate
         };
         existingTasks.push(task);
         localStorage.setItem('tasks', JSON.stringify(existingTasks));
-        addTaskForm.style.display = "none";
         taskNameInput.value = '';
         taskDescriptionInput.value = '';
     } else {    
@@ -49,34 +57,75 @@ function saveTask() {
 }
 //----------------------------------------------------------------------------------------------
 
-let upcomingBox = document.querySelector(".box:nth-child(4)");
-upcomingBox.addEventListener("click", function () {
-    
-    displayUpcomingTasks();
-});
-
 function displayUpcomingTasks() {
-    let upcomingTaskForm = document.getElementById("upcomingTaskForm");
-    let upcomingTaskList = document.getElementById("upcomingTaskList");
-    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    upcomingTaskList.innerHTML = "";
-    tasks.forEach(task => {
-        let taskItem = document.createElement("li");
-        taskItem.classList.add("upcoming-task-item");
+    let tasks = JSON.parse(window.localStorage.getItem("tasks"));
+    let upcomingTasks = ``;
 
-        let taskTitle = document.createElement("h3");
-        taskTitle.textContent = task.name;
+    let currentDate = new Date(); // Get the current date
 
-        let taskDescription = document.createElement("p");
-        taskDescription.textContent = task.description;
+    for (let i = 0; i < tasks.length; i++) {
+        if (tasks[i].userName === currentUser.UserName) {
+            let taskDate = new Date(tasks[i].date); // Convert task date to a Date object
 
-        taskItem.appendChild(taskTitle);
-        taskItem.appendChild(taskDescription);
+            // Check if the task's date is after today
+            if (taskDate > currentDate) {
+                upcomingTasks += `
+                    <div class="task">
+                        <div class="taskHeader">
+                            <p>${tasks[i].taskName}</p>
+                            <input type="radio" onclick="deleteTask()">
+                        </div>
+                        <div class="taskBody">
+                            <p>${tasks[i].description}</p>
+                            <p id="date">${tasks[i].date}</p>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+    }
 
-        upcomingTaskList.appendChild(taskItem);
-    });
-    upcomingTaskForm.style.display = "block";
+    container.innerHTML = upcomingTasks;
 }
+
+
+
+function displayTodayTasks() {
+    let tasks = JSON.parse(window.localStorage.getItem("tasks"));
+    let upcomingTasks = ``;
+
+    let currentDate = new Date(); // Get the current date
+
+    for (let i = 0; i < tasks.length; i++) {
+        if (tasks[i].userName === currentUser.UserName) {
+            let taskDate = new Date(tasks[i].date); // Convert task date to a Date object
+
+            // Check if the task's date is equal to today's date
+            if (
+                taskDate.getDate() === currentDate.getDate() &&
+                taskDate.getMonth() === currentDate.getMonth() &&
+                taskDate.getFullYear() === currentDate.getFullYear()
+            ) {
+                upcomingTasks += `
+                    <div class="task">
+                        <div class="taskHeader">
+                            <p>${tasks[i].taskName}</p>
+                            <input type="radio" onclick="deleteTask()">
+                        </div>
+                        <div class="taskBody">
+                            <p>${tasks[i].description}</p>
+                            <p id="date">${tasks[i].date}</p>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+    }
+
+    container.innerHTML = upcomingTasks;
+}
+
+
 
 // el dark mode
 
@@ -99,6 +148,33 @@ if (localStorage.getItem("theme")){
         window.localStorage.setItem("theme",JSON.stringify("dark-mode"));//save the theme as night mode in the browser
     }
 }
+
+function displayInbox(){
+    let tasks =JSON.parse(window.localStorage.getItem("tasks"));
+    let inboxTasks=``;
+    for (let i = 0; i < tasks.length; i++) {
+        if(tasks[i].userName ===currentUser.UserName){
+        inboxTasks+=`
+            <div class="task">
+                    <div class="taskHeader">
+                        <p>${tasks[i].taskName}</p>
+                        <input type="radio" onclick="deleteTask()">
+                    </div>
+                    <div class="taskBody">
+                        <p>${tasks[i].description}</p>
+                        <p id="date">${tasks[i].date}</p>
+                    </div>
+            </div>
+        `
+        }
+    }
+    container.innerHTML=inboxTasks;
+}
+function deleteTask() {
+
+
+}
+
 
 
 function toggleDarkMode() {

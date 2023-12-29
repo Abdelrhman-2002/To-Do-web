@@ -18,11 +18,11 @@
                     <img id="profileImage" src="../Logos/user.png">
                     <p></p>
                 </div>
-                <div class="box" onclick="showAddTaskForm()">
+                <div class="box" onclick="displayAddTaskForm()">
                     <img src="../Logos/plus.png">
                     <p>AddTask</p>
                 </div>  
-                <div class="box">
+                <div class="box" onclick="displayInbox()">
                     <img src="../Logos/inbox.png">
                     <p>Inbox</p>
                 </div>
@@ -30,7 +30,6 @@
                     <img src="../Logos/date.png">
                     <p>Today</p>
                 </div>
-            
                 <div class="box" onclick="displayUpcomingTasks()">
                     <img src="../Logos/day-off.png">
                     <p>Upcoming</p>
@@ -39,28 +38,8 @@
                     <img id="themeIconImage" src="../Logos/night-mode.png">
                 </div>
             </div>
-            <div class="container">
-                <!-- Add task form -->
-                <div class="add-task-form" id="addTaskForm">
-                    <form id="taskForm">
-                        <label for="taskName">Task Name:</label>
-                        <input type="text" id="taskName" name="taskName" required>
-
-                        <label for="taskDescription">Task Description:</label>
-                        <textarea id="taskDescription" name="taskDescription" required></textarea>
-
-                        <label for="taskDate">Task Date:</label>
-                        <input type="date" id="taskDate" name="taskDate" required>
-
-                        <button type="button" onclick="saveTask()">Save Task</button>
-                    </form>
-                </div>
-
-                <!-- Upcoming task form -->
-                <div class="upcoming-task-form" id="upcomingTaskForm">
-                    <h2>Upcoming Tasks</h2>
-                    <ul id="upcomingTaskList"></ul>
-                </div>
+            <div id="container">
+                
             </div>
         </div>
     </section>
