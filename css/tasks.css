@@ -112,6 +112,7 @@ section {
     margin: 10% auto;
     max-width: 400px;
     color: #fff;
+    position: relative;
 }
 
 .add-task-form h2,
@@ -124,6 +125,7 @@ section {
 
 #taskForm {
     max-width: 100%;
+
 }
 
 label {
@@ -144,7 +146,20 @@ textarea {
     color: #333;
     font-family: 'Open Sans', sans-serif;
 }
-button {
+.saveTask{
+    background-image: url(../Logos/done\ \(1\).png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    bottom:10px;
+    right: 10px;
+}
+.task button {
     background-image: url(../Logos/done\ \(1\).png);
     background-repeat: no-repeat;
     background-size: cover;

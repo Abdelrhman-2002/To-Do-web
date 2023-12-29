@@ -26,7 +26,7 @@ function displayAddTaskForm(){
             <label for="taskDate">Task Date:</label>
             <input type="date" id="taskDate" name="taskDate" required>
 
-            <button onclick="saveTask()">Save Task</button>
+            <button class="saveTask" onclick="saveTask()"></button>
         </form>
     </div>
     `
