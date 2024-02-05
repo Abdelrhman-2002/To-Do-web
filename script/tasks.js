@@ -156,7 +156,6 @@ function displayInbox() {
     
 }
 
-// Add this function to your JavaScript
 function markTaskAsDone(taskIndex) {
     let tasks = JSON.parse(window.localStorage.getItem("tasks"));
 
